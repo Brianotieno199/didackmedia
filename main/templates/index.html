@@ -1,0 +1,488 @@
+{% load static tailwind_tags %}
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <title>Didack Media</title>
+    {% tailwind_css %}
+
+    <style>
+        .logo-scroll {
+            animation: scrollLogos 35s linear infinite;
+        }
+
+        .logo-scroll:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scrollLogos {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(-50%);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-black text-white">
+
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 left-0 w-full bg-black/90 backdrop-blur border-b border-white/10 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+        <h1 class="text-2xl font-bold tracking-wide">Didack Media</h1>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex gap-8 text-sm uppercase tracking-widest">
+            <a href="#home">Home</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+            <a href="#blog">Blog</a>
+        </div>
+
+        <!-- Mobile Button -->
+        <button onclick="toggleMenu()" class="md:hidden text-2xl">
+            ☰
+        </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden flex-col bg-black text-center py-6 space-y-4 md:hidden">
+        <a href="#home" onclick="toggleMenu()">Home</a>
+        <a href="#gallery" onclick="toggleMenu()">Gallery</a>
+        <a href="#about" onclick="toggleMenu()">About</a>
+        <a href="#contact" onclick="toggleMenu()">Contact</a>
+        <a href="#blog" onclick="toggleMenu()">Blog</a>
+    </div>
+</nav>
+
+    <<!-- HOME -->
+<section id="home" class="min-h-screen flex items-center justify-center px-6 pt-24 relative overflow-hidden">
+
+    <div id="bgSlider" class="absolute inset-0 z-0">
+        <img src="{% static 'images/bg1.jpg' %}" class="absolute inset-0 w-full h-full object-cover opacity-100 transition-opacity duration-1000">
+        <img src="{% static 'images/bg2.jpg' %}" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000">
+        <img src="{% static 'images/bg3.jpg' %}" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000">
+    </div>
+
+    <div class="absolute inset-0 bg-black/65 z-10"></div>
+
+    <div class="max-w-5xl text-center relative z-20">
+        <p class="uppercase tracking-[0.4em] text-gray-300 mb-5">Photography & Visual Storytelling</p>
+
+        <h2 class="text-5xl md:text-7xl font-bold leading-tight mb-6">
+            Capturing Authentic Moments with Incredible Lighting
+        </h2>
+
+        <p class="text-gray-200 text-lg max-w-3xl mx-auto leading-8">
+            Your story deserves to be told with precision and creativity. At Didack Media,
+            we specialize in crafting stunning visuals that showcase the essence of every moment.
+        </p>
+
+        <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="#gallery" class="bg-white text-black px-8 py-3 font-semibold hover:bg-gray-300 transition">
+                View Our Gallery
+            </a>
+
+            <a href="#contact" class="border border-white px-8 py-3 font-semibold hover:bg-white hover:text-black transition">
+                Get In Touch
+            </a>
+        </div>
+    </div>
+</section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="bg-zinc-950 px-6 py-24">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-14">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Why Choose Didack Media?</h2>
+                <p class="text-gray-400">Expertise that transforms moments into lasting memories and impactful stories</p>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="bg-black border border-white/10 p-6 rounded-2xl hover:border-white/30 transition">
+                    <h3 class="text-xl font-bold mb-3">Corporate Event Coverage</h3>
+                    <p class="text-gray-400 leading-7">We capture the highlights and nuances of corporate events with precision and professionalism.</p>
+                </div>
+
+                <div class="bg-black border border-white/10 p-6 rounded-2xl hover:border-white/30 transition">
+                    <h3 class="text-xl font-bold mb-3">Climate Change & Agroecology Media</h3>
+                    <p class="text-gray-400 leading-7">We tell environmental and agroecology stories with clarity, emotion, and purpose.</p>
+                </div>
+
+                <div class="bg-black border border-white/10 p-6 rounded-2xl hover:border-white/30 transition">
+                    <h3 class="text-xl font-bold mb-3">Professional Studio Photoshoots</h3>
+                    <p class="text-gray-400 leading-7">Studio photography tailored for portraits, brands, products, and professional identity.</p>
+                </div>
+
+                <div class="bg-black border border-white/10 p-6 rounded-2xl hover:border-white/30 transition">
+                    <h3 class="text-xl font-bold mb-3">Social Impact Storytelling</h3>
+                    <p class="text-gray-400 leading-7">We help nonprofits, organizations, and communities communicate their mission through powerful imagery.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- TRUSTED PARTNERS -->
+<section class="bg-black px-6 py-20 overflow-hidden">
+    <div class="max-w-7xl mx-auto text-center mb-12">
+        <p class="uppercase tracking-[0.3em] text-gray-500 mb-3">Trusted Partners</p>
+        <h2 class="text-4xl md:text-5xl font-bold mb-4">Our Valued Clients</h2>
+        <p class="text-gray-400">
+            Collaborating with world-class organizations to create meaningful visual stories
+        </p>
+    </div>
+
+    <div class="relative overflow-hidden py-6">
+        <div class="pointer-events-none absolute left-0 top-0 h-full w-32 bg-gradient-to-r from-black to-transparent z-10"></div>
+        <div class="pointer-events-none absolute right-0 top-0 h-full w-32 bg-gradient-to-l from-black to-transparent z-10"></div>
+
+        <div class="flex gap-6 logo-scroll w-max">
+
+            <div class="w-56 h-28 bg-white rounded-2xl flex items-center justify-center p-6 shrink-0 shadow-xl">
+                <img src="{% static 'images/partners/convoy.png' %}" class="max-h-16 max-w-full object-contain grayscale hover:grayscale-0 transition duration-300" alt="Convoy of Hope">
+            </div>
+
+            <div class="w-56 h-28 bg-white rounded-2xl flex items-center justify-center p-6 shrink-0 shadow-xl">
+                <img src="{% static 'images/partners/shofco.png' %}" class="max-h-16 max-w-full object-contain grayscale hover:grayscale-0 transition duration-300" alt="SHOFCO">
+            </div>
+
+            <div class="w-56 h-28 bg-white rounded-2xl flex items-center justify-center p-6 shrink-0 shadow-xl">
+                <img src="{% static 'images/partners/wangari.png' %}" class="max-h-16 max-w-full object-contain grayscale hover:grayscale-0 transition duration-300" alt="Wangari Maathai Foundation">
+            </div>
+
+            <div class="w-56 h-28 bg-white rounded-2xl flex items-center justify-center p-6 shrink-0 shadow-xl">
+                <img src="{% static 'images/partners/medic.png' %}" class="max-h-16 max-w-full object-contain grayscale hover:grayscale-0 transition duration-300" alt="Medic East Africa">
+            </div>
+
+            <div class="w-56 h-28 bg-white rounded-2xl flex items-center justify-center p-6 shrink-0 shadow-xl">
+                <img src="{% static 'images/partners/teachforall.png' %}" class="max-h-16 max-w-full object-contain grayscale hover:grayscale-0 transition duration-300" alt="Teach For All">
+            </div>
+
+            <div class="w-56 h-28 bg-white rounded-2xl flex items-center justify-center p-6 shrink-0 shadow-xl">
+                <img src="{% static 'images/partners/isfaa.png' %}" class="max-h-16 max-w-full object-contain grayscale hover:grayscale-0 transition duration-300" alt="ISFAA">
+            </div>
+
+            <div class="w-56 h-28 bg-white rounded-2xl flex items-center justify-center p-6 shrink-0 shadow-xl">
+                <img src="{% static 'images/partners/ifip.png' %}" class="max-h-16 max-w-full object-contain grayscale hover:grayscale-0 transition duration-300" alt="IFIP">
+            </div>
+
+            <!-- duplicate for smooth loop -->
+            <div class="w-56 h-28 bg-white rounded-2xl flex items-center justify-center p-6 shrink-0 shadow-xl">
+                <img src="{% static 'images/partners/convoy.png' %}" class="max-h-16 max-w-full object-contain grayscale hover:grayscale-0 transition duration-300" alt="Convoy of Hope">
+            </div>
+
+            <div class="w-56 h-28 bg-white rounded-2xl flex items-center justify-center p-6 shrink-0 shadow-xl">
+                <img src="{% static 'images/partners/shofco.png' %}" class="max-h-16 max-w-full object-contain grayscale hover:grayscale-0 transition duration-300" alt="SHOFCO">
+            </div>
+
+            <div class="w-56 h-28 bg-white rounded-2xl flex items-center justify-center p-6 shrink-0 shadow-xl">
+                <img src="{% static 'images/partners/wangari.png' %}" class="max-h-16 max-w-full object-contain grayscale hover:grayscale-0 transition duration-300" alt="Wangari Maathai Foundation">
+            </div>
+
+            <div class="w-56 h-28 bg-white rounded-2xl flex items-center justify-center p-6 shrink-0 shadow-xl">
+                <img src="{% static 'images/partners/medic.png' %}" class="max-h-16 max-w-full object-contain grayscale hover:grayscale-0 transition duration-300" alt="Medic East Africa">
+            </div>
+
+            <div class="w-56 h-28 bg-white rounded-2xl flex items-center justify-center p-6 shrink-0 shadow-xl">
+                <img src="{% static 'images/partners/teachforall.png' %}" class="max-h-16 max-w-full object-contain grayscale hover:grayscale-0 transition duration-300" alt="Teach For All">
+            </div>
+
+            <div class="w-56 h-28 bg-white rounded-2xl flex items-center justify-center p-6 shrink-0 shadow-xl">
+                <img src="{% static 'images/partners/isfaa.png' %}" class="max-h-16 max-w-full object-contain grayscale hover:grayscale-0 transition duration-300" alt="ISFAA">
+            </div>
+
+            <div class="w-56 h-28 bg-white rounded-2xl flex items-center justify-center p-6 shrink-0 shadow-xl">
+                <img src="{% static 'images/partners/ifip.png' %}" class="max-h-16 max-w-full object-contain grayscale hover:grayscale-0 transition duration-300" alt="IFIP">
+            </div>
+
+        </div>
+    </div>
+
+    <div class="max-w-4xl mx-auto grid grid-cols-3 gap-6 text-center mt-16">
+        <div>
+            <h3 class="text-4xl font-bold">50+</h3>
+            <p class="text-gray-400">Projects Completed</p>
+        </div>
+
+        <div>
+            <h3 class="text-4xl font-bold">7+</h3>
+            <p class="text-gray-400">Trusted Partners</p>
+        </div>
+
+        <div>
+            <h3 class="text-4xl font-bold">100%</h3>
+            <p class="text-gray-400">Client Satisfaction</p>
+        </div>
+    </div>
+</section>
+    <!-- GALLERY CATEGORY CARDS -->
+    <section id="gallery" class="bg-zinc-950 px-6 py-24">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-14">
+                <p class="uppercase tracking-[0.3em] text-gray-500 mb-3">Our Gallery</p>
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Explore Our Portfolio</h2>
+                <p class="text-gray-400">Showcasing impactful storytelling across various industries and communities</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                {% for category in categories %}
+                    <a href="{% url 'category_gallery' category.slug %}" class="group block rounded-2xl overflow-hidden bg-black border border-white/10 hover:border-white/40 transition">
+                        <div class="h-72 overflow-hidden relative">
+                            <img src="{{ category.cover_image.url }}" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+
+                            <div class="absolute inset-0 bg-black/50 group-hover:bg-black/25 transition"></div>
+
+                            <div class="absolute bottom-6 left-6 right-6">
+                                <h3 class="text-2xl font-bold mb-2">{{ category.name }}</h3>
+                                <p class="text-gray-200 text-sm">Click to view gallery</p>
+                            </div>
+                        </div>
+
+                        <div class="p-6 flex items-center justify-between">
+                            <span class="text-sm uppercase tracking-widest text-gray-500">View Photos</span>
+                            <span class="text-gray-400 group-hover:text-white transition">→</span>
+                        </div>
+                    </a>
+                {% empty %}
+                    <p class="text-gray-400">No gallery categories added yet.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="bg-black px-6 py-24">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <p class="uppercase tracking-[0.3em] text-gray-500 mb-3">About Didack Media</p>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">Authentic Visual Storytelling</h2>
+
+                    <p class="text-gray-300 leading-8 mb-6">
+                        We are a passionate team of visual storytellers based in Nairobi, Kenya,
+                        dedicated to capturing authentic moments that matter. Our expertise spans corporate events,
+                        humanitarian documentation, environmental storytelling, and professional photography services.
+                    </p>
+
+                    <p class="text-gray-300 leading-8">
+                        Every project we undertake is guided by a commitment to authenticity, creativity,
+                        and a deep respect for the stories we tell.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-2 gap-6 text-center">
+                    <div class="bg-zinc-950 p-6 rounded-2xl border border-white/10">
+                        <h3 class="text-4xl font-bold">500+</h3>
+                        <p class="text-gray-400">Projects Completed</p>
+                    </div>
+
+                    <div class="bg-zinc-950 p-6 rounded-2xl border border-white/10">
+                        <h3 class="text-4xl font-bold">50+</h3>
+                        <p class="text-gray-400">Organizations Served</p>
+                    </div>
+
+                    <div class="bg-zinc-950 p-6 rounded-2xl border border-white/10">
+                        <h3 class="text-4xl font-bold">5+</h3>
+                        <p class="text-gray-400">Years Experience</p>
+                    </div>
+
+                    <div class="bg-zinc-950 p-6 rounded-2xl border border-white/10">
+                        <h3 class="text-4xl font-bold">10K+</h3>
+                        <p class="text-gray-400">Stories Told</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM -->
+    <section class="bg-zinc-950 px-6 py-24">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-14">
+                <p class="uppercase tracking-[0.3em] text-gray-500 mb-3">Meet Our Team</p>
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Passionate Storytellers</h2>
+                <p class="text-gray-400">Dedicated to capturing authentic moments and driving social impact through visual narratives</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+
+                <div class="bg-black border border-white/10 rounded-2xl overflow-hidden hover:border-white/30 transition">
+                    <img src="{% static 'images/allan.jpg' %}" alt="Allan Didack" class="w-full h-80 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold">Allan Didack</h3>
+                        <p class="text-gray-500 mb-4">Founder & Documentary Photographer</p>
+                        <p class="text-gray-300 leading-7">
+                            A documentary and corporate photographer based in Nairobi, Kenya, with a deep passion for visual storytelling that informs, inspires, and drives meaningful change.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-black border border-white/10 rounded-2xl overflow-hidden hover:border-white/30 transition">
+                    <img src="{% static 'images/cole.jpg' %}" alt="Cole Charles" class="w-full h-80 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold">Cole Charles</h3>
+                        <p class="text-gray-500 mb-4">Cinematographer</p>
+                        <p class="text-gray-300 leading-7">
+                            A seasoned cinematographer focused on visual storytelling, humanitarian efforts, environmental campaigns, and socially conscious initiatives.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-black border border-white/10 rounded-2xl overflow-hidden hover:border-white/30 transition">
+                    <img src="{% static 'images/sharon.jpg' %}" alt="Sharon Nyoike" class="w-full h-80 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold">Sharon Nyoike</h3>
+                        <p class="text-gray-500 mb-4">Content Strategist & Digital Media Consultant</p>
+                        <p class="text-gray-300 leading-7">
+                            A content strategist specializing in purpose-driven storytelling, strategic content, digital influence, and authentic personal branding.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOG -->
+    <section id="blog" class="bg-black px-6 py-24">
+        <div class="grid md:grid-cols-3 gap-8">
+    {% for blog in blogs %}
+        <div class="bg-zinc-950 border border-white/10 rounded-2xl overflow-hidden">
+            <img src="{{ blog.image.url }}" class="h-56 w-full object-cover">
+
+            <div class="p-6">
+                <p class="text-gray-500 mb-2">{{ blog.created }}</p>
+                <h3 class="text-xl font-bold mb-3">{{ blog.title }}</h3>
+                <p class="text-gray-400 mb-4">{{ blog.content|truncatewords:20 }}</p>
+                <a href="{% url 'blog_detail' blog.id %}" class="text-white underline hover:text-gray-300">
+                    Read More →
+                </a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+    </section>
+
+    <!-- CONTACT -->
+<section id="contact" class="bg-zinc-950 px-6 py-24">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-14">
+            <p class="uppercase tracking-[0.3em] text-gray-500 mb-3">Let’s Create Together</p>
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">Get In Touch</h2>
+            <p class="text-gray-400">Ready to tell your story? Get in touch to discuss your next project</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-10">
+
+            <form method="POST" class="space-y-4 bg-black border border-white/10 p-8 rounded-2xl">
+                {% csrf_token %}
+
+                <input type="hidden" name="form_type" value="contact">
+
+                {% if contact_success %}
+                    <div class="bg-green-900/40 border border-green-500/30 text-green-200 p-4 rounded-xl">
+                        Your message has been sent successfully.
+                    </div>
+                {% endif %}
+
+                {% if contact_error %}
+                    <div class="bg-red-900/40 border border-red-500/30 text-red-200 p-4 rounded-xl">
+                        {{ contact_error }}
+                    </div>
+                {% endif %}
+
+                <input type="text" name="first_name" placeholder="First Name" class="w-full p-4 bg-zinc-900 border border-white/10 text-white rounded-xl focus:outline-none focus:border-white/40">
+
+                <input type="text" name="last_name" placeholder="Last Name" class="w-full p-4 bg-zinc-900 border border-white/10 text-white rounded-xl focus:outline-none focus:border-white/40">
+
+                <input type="email" name="email" placeholder="Email" class="w-full p-4 bg-zinc-900 border border-white/10 text-white rounded-xl focus:outline-none focus:border-white/40">
+
+                <input type="text" name="project_type" placeholder="Project Type" class="w-full p-4 bg-zinc-900 border border-white/10 text-white rounded-xl focus:outline-none focus:border-white/40">
+
+                <textarea name="message" placeholder="Tell us about your project..." rows="5" class="w-full p-4 bg-zinc-900 border border-white/10 text-white rounded-xl focus:outline-none focus:border-white/40"></textarea>
+
+                <button type="submit" class="bg-white text-black px-8 py-3 rounded-xl font-semibold hover:bg-gray-300 transition">
+                    Send Message
+                </button>
+            </form>
+
+            <div class="bg-black border border-white/10 p-8 rounded-2xl">
+                <h3 class="text-3xl font-bold mb-6">Get in touch</h3>
+
+                <p class="text-gray-400 mb-2">Email</p>
+                <p class="mb-6">info@didackmedia.com</p>
+
+                <p class="text-gray-400 mb-2">Phone</p>
+                <p class="mb-6">+254716760709</p>
+
+                <p class="text-gray-400 mb-2">Location</p>
+                <p class="mb-6">Nairobi, Kenya</p>
+
+                <p class="text-gray-400 mb-2">Our Clients</p>
+                <p class="text-gray-300 leading-7">
+                    SHOFCO, Local NGOs, International Organizations, Corporate Entities, Environmental Groups
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- FOOTER -->
+    <footer class="bg-black border-t border-white/10 px-6 py-10">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
+            <div>
+                <h3 class="text-2xl font-bold mb-3">Didack Media</h3>
+                <p class="text-gray-400 leading-7">
+                    Professional photography and visual storytelling in Nairobi, Kenya.
+                </p>
+            </div>
+
+            <div>
+                <h4 class="font-bold mb-3">Quick Links</h4>
+                <div class="space-y-2 text-gray-400">
+                    <p><a href="#home">Home</a></p>
+                    <p><a href="#gallery">Gallery</a></p>
+                    <p><a href="#about">About Us</a></p>
+                    <p><a href="#contact">Contact</a></p>
+                    <p><a href="#blog">Blog</a></p>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="font-bold mb-3">Contact</h4>
+                <p class="text-gray-400">info@didackmedia.com</p>
+                <p class="text-gray-400">+254716760709</p>
+                <p class="text-gray-400">Nairobi, Kenya</p>
+            </div>
+        </div>
+
+        <p class="text-center text-gray-600 mt-10">
+            © 2025 Didack Media. All rights reserved. Proudly made and managed by SAJJADTECH
+        </p>
+    </footer>
+    <script>
+function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    menu.classList.toggle('hidden');
+}
+</script>
+<script>
+    const slides = document.querySelectorAll('#bgSlider img');
+    let currentSlide = 0;
+
+    setInterval(() => {
+        slides[currentSlide].classList.remove('opacity-100');
+        slides[currentSlide].classList.add('opacity-0');
+
+        currentSlide = (currentSlide + 1) % slides.length;
+
+        slides[currentSlide].classList.remove('opacity-0');
+        slides[currentSlide].classList.add('opacity-100');
+    }, 4000);
+</script>
+</body>
+</html>
