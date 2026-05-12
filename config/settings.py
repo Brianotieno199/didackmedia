@@ -25,7 +25,13 @@ SECRET_KEY = 'django-insecure-nfq2t94f=5fw=65xp)@7x+#a_7d44%u@mo$g2u1krq48aftj#9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['didackmedia.com',
+                'www.didackmedia.com', "127.0.0.1", "localhost"]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://didackmedia.com',
+    'https://www.didackmedia.com',
+]
 
 
 # Application definition
@@ -122,3 +128,6 @@ TAILWIND_APP_NAME = 'theme'
 NPM_BIN_PATH = "C:/Program Files/nodejs/npm.cmd"
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+STATIC_URL = "/static/"
+STATIC_ROOT = BASE_DIR / "staticfiles"
