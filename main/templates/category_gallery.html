@@ -2,29 +2,55 @@
 
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>{{ category.name }} | Didack Media</title>
+
     {% tailwind_css %}
+
+    <style>
+        html,
+        body {
+            overflow-x: hidden;
+        }
+    </style>
 </head>
 
-<body class="bg-black text-white">
+<body class="bg-black text-white overflow-x-hidden">
 
+    <!-- NAVBAR -->
     <nav class="fixed top-0 left-0 w-full bg-black/90 backdrop-blur border-b border-white/10 z-50">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="/" class="text-2xl font-bold tracking-wide">Didack Media</a>
 
-            <a href="/#gallery" class="text-sm uppercase tracking-widest text-gray-400 hover:text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+
+            <a href="/"
+               class="text-xl sm:text-2xl font-bold tracking-wide">
+                Didack Media
+            </a>
+
+            <a href="/#gallery"
+               class="text-xs sm:text-sm uppercase tracking-widest text-gray-400 hover:text-white transition">
                 Back to Gallery
             </a>
+
         </div>
+
     </nav>
 
-    <section class="min-h-screen px-6 pt-32 pb-20">
+    <!-- GALLERY SECTION -->
+    <section class="min-h-screen px-4 sm:px-6 pt-32 pb-20">
+
         <div class="max-w-7xl mx-auto">
 
+            <!-- HEADER -->
             <div class="mb-12">
-                <p class="uppercase tracking-[0.3em] text-gray-500 mb-4">Gallery Collection</p>
+
+                <p class="uppercase tracking-[0.2em] sm:tracking-[0.3em] text-gray-500 mb-4 text-xs sm:text-sm">
+                    Gallery Collection
+                </p>
 
                 <h1 class="text-4xl md:text-6xl font-bold mb-4">
                     {{ category.name }}
@@ -33,64 +59,56 @@
                 <p class="text-gray-400 max-w-2xl leading-7">
                     Explore our photography collection under {{ category.name }}.
                 </p>
+
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <!-- GRID -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
                 {% for photo in photos %}
-                    <div class="group overflow-hidden rounded-2xl bg-zinc-900 border border-white/10 cursor-pointer hover:border-white/40 transition"
-                         onclick="openLightbox('{{ photo.image.url }}')">
 
-                        <div class="h-80 overflow-hidden">
-                            <img src="{{ photo.image.url }}"
-                                 alt="{{ photo.title }}"
-                                 class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                        </div>
+                    <div class="bg-zinc-900 rounded-3xl overflow-hidden shadow-lg hover:-translate-y-2 transition duration-300 border border-white/10 hover:border-white/40">
 
+                        <!-- IMAGE -->
+                        <img src="{{ photo.image.url }}"
+                             alt="{{ photo.title }}"
+                             loading="eager"
+                             fetchpriority="high"
+                             decoding="sync"
+                             class="w-full h-72 object-cover object-center">
+
+                        <!-- CONTENT -->
                         {% if photo.title %}
-                            <div class="p-4">
-                                <p class="text-gray-300">{{ photo.title }}</p>
+                            <div class="p-6">
+
+                                <h3 class="text-xl font-bold text-white">
+                                    {{ photo.title }}
+                                </h3>
+
+                                {% if photo.description %}
+                                    <p class="text-slate-300 mt-2 leading-7">
+                                        {{ photo.description }}
+                                    </p>
+                                {% endif %}
+
                             </div>
                         {% endif %}
+
                     </div>
+
                 {% empty %}
-                    <p class="text-gray-400">No photos added yet for this category.</p>
+
+                    <p class="text-center text-gray-400 col-span-full">
+                        No photos added yet for this category.
+                    </p>
+
                 {% endfor %}
 
             </div>
 
         </div>
+
     </section>
-
-    <div id="lightbox"
-         class="fixed inset-0 bg-black/95 hidden items-center justify-center z-[9999] px-4"
-         onclick="closeLightbox()">
-
-        <button type="button"
-                class="absolute top-6 right-8 text-white text-4xl font-light hover:text-gray-400"
-                onclick="closeLightbox()">
-            ×
-        </button>
-
-        <img id="lightbox-img"
-             src=""
-             alt="Gallery image"
-             class="max-h-[90vh] max-w-[90vw] rounded-2xl shadow-2xl object-contain">
-    </div>
-
-    <script>
-        function openLightbox(src) {
-            const lightbox = document.getElementById('lightbox');
-            const img = document.getElementById('lightbox-img');
-
-            img.src = src;
-            lightbox.style.display = 'flex';
-        }
-
-        function closeLightbox() {
-            document.getElementById('lightbox').style.display = 'none';
-        }
-    </script>
 
 </body>
 </html>
