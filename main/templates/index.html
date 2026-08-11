@@ -82,6 +82,150 @@
             }
         }
     </style>
+
+
+    <!-- DIDACK MEDIA BRAND THEME OVERRIDES -->
+    <style>
+        :root {
+            --didack-orange: #F7941D;
+            --didack-dark: #222222;
+            --didack-muted: #5f6368;
+            --didack-light: #f8f8f8;
+            --didack-border: #ead8c2;
+        }
+
+        /* MAIN SITE: WHITE THEME */
+        body {
+            background: #ffffff !important;
+            color: var(--didack-dark) !important;
+        }
+
+        /* NAVIGATION */
+        nav {
+            background: rgba(255,255,255,0.97) !important;
+            border-bottom: 1px solid #eeeeee !important;
+            box-shadow: 0 2px 14px rgba(0,0,0,0.06);
+        }
+        nav h1,
+        nav a,
+        nav button {
+            color: var(--didack-orange) !important;
+        }
+        nav a:hover {
+            color: #d97800 !important;
+        }
+        #mobileMenu {
+            background: #ffffff !important;
+            border-color: #eeeeee !important;
+        }
+
+        /* HERO: KEEP PHOTO DARK ENOUGH FOR WHITE TEXT */
+        #home {
+            color: #ffffff !important;
+        }
+        #home h2,
+        #home p {
+            color: #ffffff !important;
+        }
+        #home p:first-child {
+            color: #ffd39d !important;
+        }
+        #home a:first-of-type {
+            background: var(--didack-orange) !important;
+            color: #ffffff !important;
+            border-color: var(--didack-orange) !important;
+        }
+        #home a:first-of-type:hover {
+            background: #d97800 !important;
+        }
+        #home a:last-of-type {
+            border-color: var(--didack-orange) !important;
+            color: #ffffff !important;
+        }
+        #home a:last-of-type:hover {
+            background: var(--didack-orange) !important;
+            color: #ffffff !important;
+        }
+
+        /* ALL NON-HERO SECTIONS */
+        body > section:not(#home) {
+            background: #ffffff !important;
+            color: var(--didack-dark) !important;
+        }
+        body > section:not(#home):nth-of-type(even) {
+            background: var(--didack-light) !important;
+        }
+        body > section:not(#home) h2,
+        body > section:not(#home) h3 {
+            color: var(--didack-orange) !important;
+        }
+        body > section:not(#home) p {
+            color: var(--didack-muted) !important;
+        }
+        body > section:not(#home) .bg-black,
+        body > section:not(#home) .bg-zinc-950,
+        #contact form,
+        #contact form + div {
+            background: #ffffff !important;
+            color: var(--didack-dark) !important;
+            border-color: var(--didack-border) !important;
+        }
+
+        /* CARDS */
+        body > section:not(#home) .rounded-2xl {
+            border-color: var(--didack-border) !important;
+        }
+
+        /* KEEP GALLERY IMAGE CAPTIONS READABLE */
+        #gallery .absolute.bottom-6 h3,
+        #gallery .absolute.bottom-6 p {
+            color: #ffffff !important;
+        }
+
+        /* ORANGE STATS */
+        #about h3,
+        section h3.text-4xl {
+            color: var(--didack-orange) !important;
+        }
+
+        /* CONTACT FORM */
+        #contact input,
+        #contact textarea {
+            background: #ffffff !important;
+            color: var(--didack-dark) !important;
+            border: 1px solid #d9d9d9 !important;
+        }
+        #contact input:focus,
+        #contact textarea:focus {
+            border-color: var(--didack-orange) !important;
+        }
+        #contact button {
+            background: var(--didack-orange) !important;
+            color: #ffffff !important;
+        }
+        #contact button:hover {
+            background: #d97800 !important;
+        }
+
+        /* BLOG LINKS */
+        #blog a {
+            color: var(--didack-orange) !important;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #ffffff !important;
+            color: var(--didack-dark) !important;
+            border-top: 1px solid #eeeeee !important;
+        }
+        footer h3, footer h4, footer a {
+            color: var(--didack-orange) !important;
+        }
+        footer p {
+            color: var(--didack-muted) !important;
+        }
+    </style>
+
 </head>
 
 <body class="bg-black text-white overflow-x-hidden">
@@ -140,7 +284,7 @@
 <section id="home" class="min-h-screen flex items-center justify-center px-6 pt-24 relative overflow-hidden">
 
     <div id="bgSlider" class="absolute inset-0 z-0">
-        <img src="{% static 'images/bg1.png' %}"
+        <img src="{% static 'images/bg1.jpeg' %}"
      loading="eager"
      fetchpriority="high"
      decoding="sync"
@@ -163,11 +307,6 @@
         <p class="uppercase tracking-[0.4em] text-gray-300 mb-5">
             Photography & Visual Storytelling
         </p>
-
-        <h2 class="text-5xl md:text-7xl font-bold leading-tight mb-6">
-            Capturing Authentic Moments with Incredible Lighting
-        </h2>
-
         <p class="text-gray-200 text-lg max-w-3xl mx-auto leading-8">
             Your story deserves to be told with precision and creativity. At Didack Media,
             we specialize in crafting stunning visuals that showcase the essence of every moment.
